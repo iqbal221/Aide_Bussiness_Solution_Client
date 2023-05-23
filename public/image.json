@@ -1,0 +1,57 @@
+[
+    {
+        "_id":1,
+        "img":"gallery-1.jpg",
+        "name":"Shoes-1",
+        "price":"Tk 3200"
+
+    },
+    {
+        "_id":2,
+        "img":"gallery-2.jpg",
+        "name":"Shoes-2",
+        "price":"Tk 3800"
+    },
+    {
+        "_id":3,
+        "img":"gallery-3.jpg",
+        "name":"Shoes-3",
+        "price":"Tk 4500"
+    },
+    {
+        "_id":4,
+        "img":"gallery-4.jpg",
+        "name":"Bag-1",
+        "price":"Tk 2250"
+    },
+    {
+        "_id":5,
+        "img":"gallery-5.jpg",
+        "name":"Bat-2",
+        "price":"Tk 2890"
+    },
+    {
+        "_id":6,
+        "img":"gallery-6.jpg",
+        "name":"Bag-3",
+        "price":"Tk 1990"
+    },
+    {
+        "_id":7,
+        "img":"gallery-7.jpg",
+        "name":"Watch-1",
+        "price":"Tk 1500"
+    },
+    {
+        "_id":8,
+        "img":"gallery-8.jpg",
+        "name":"Watch-2",
+        "price":"Tk 1200"
+    },
+    {
+        "_id":9,
+        "img":"gallery-9.jpg",
+        "name":"Watch-3",
+        "price":"Tk 1800"
+    }
+]

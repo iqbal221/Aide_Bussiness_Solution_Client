@@ -8,7 +8,7 @@ import AllUsers from "../components/Admin/AllUsers/AllUsers";
 import AdminDashboard from "../layout/AdminDashboard";
 import AddProducts from "../components/Admin/AddProducts/AddProducts";
 import AddUser from "../components/Admin/AddUser/AddUser";
-import PrivateRoute from "./privateRoute";
+import PrivateRoute from "./PrivateRoute";
 
 
 export const routes = createBrowserRouter([

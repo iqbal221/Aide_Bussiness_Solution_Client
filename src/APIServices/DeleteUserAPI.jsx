@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export default function DeleteUser(id){
-    let URL = `http://localhost:5000/api/v1/DeleteUser/${id}`;
+    let URL = `https://aide-bussiness-solution-server.vercel.app/api/v1/DeleteUser/${id}`;
     
     return axios.deel(URL,{
         headers:{

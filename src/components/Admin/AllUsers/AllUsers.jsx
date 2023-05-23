@@ -21,7 +21,7 @@ function AllUsers() {
 
 
     const handleDeleteUser = (id) => {
-          fetch(`http://localhost:5000/api/v1/DeleteUser/${id}`,{
+          fetch(`https://aide-bussiness-solution-server.vercel.app/api/v1/DeleteUser/${id}`,{
             method: "DELETE",
           })
             .then((res) => res.json())

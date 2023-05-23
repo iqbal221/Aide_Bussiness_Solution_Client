@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export default function GetProduct(){
-    let URL = 'http://localhost:5000/api/v1/GetProduct'
+    let URL = 'https://aide-bussiness-solution-server.vercel.app/api/v1/GetProduct'
     return axios.get(URL)
     .then((res)=>{
         console.log(res)

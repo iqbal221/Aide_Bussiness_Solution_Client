@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export default function AddMyCardProduct(name,price,img){
-    let URL = `http://localhost:5000/api/v1/AddCardProduct`;
+    let URL = "https://aide-bussiness-solution-server.vercel.app/api/v1/AddCardProduct";
     const ProductInfo={
         Name:name,
         Price:price,

@@ -15,9 +15,9 @@ function AddProductModal() {
     const handleAddProduct=(data)=>{ 
         const Name = data.name;
         const Price = data.price;
-        const Image = data.image;
-        console.log(Name, Price, Image)
-        AddProduct(Name, Price, Image).then((result) => {
+        // const Image = data.image;
+        console.log(Name, Price)
+        AddProduct(Name, Price).then((result) => {
             console.log(result)
             if (result === true) {
                 toast.success("Product added Succesfully")

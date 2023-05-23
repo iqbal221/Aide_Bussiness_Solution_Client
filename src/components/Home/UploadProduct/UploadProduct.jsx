@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import GetProduct from '../../../APIServices/GetProductAPI';
 
 
+
 function UploadProduct() {
     
     const [productData,setProductData]=useState([])
@@ -14,19 +15,19 @@ function UploadProduct() {
 
    console.log(productData)
 
-   const AddMyCardProduct = (id)=>{
-        console.log(id)
-   }
+//    const AddMyCardProduct = (id)=>{
+//         console.log(id)
+//    }
 
     return (
         <div className='px-16 mx-auto mb-20'>
             <div className="grid md:grid-cols-3 grid-cols-1 gap-8">
                  { 
-                    productData?.map((data,id)=>{
+                    productData?.map((data,_id)=>{
                         return (
-                            <div key={id} className="card card-compact p-5 w-96 bg-base-100 shadow-lg cursor-pointer">
+                            <div key={_id} className="card card-compact p-5 w-96 bg-base-100 shadow-lg cursor-pointer">
                                 <figure>
-                                    <img src={data?.img} className='w-64 h-64' alt="Shoes" />
+                                    {/* <img src={data?.img} className='w-64 h-64' alt="Shoes" /> */}
                                 </figure>
                                 <div className="card-body">
                                     <div className='flex justify-between mb-4'>
@@ -34,7 +35,7 @@ function UploadProduct() {
                                         <h2 className='text-2xl font-bold text-red-700'>{data.Price}</h2>
                                     </div>
                                     <div className="card-actions justify-center ">
-                                        <button onClick={()=>AddMyCardProduct(data?._id)} className="btn bg-sky-300 border-sky-300 w-80"  >
+                                        <button  className="btn bg-sky-300 border-sky-300 w-80"  >
                                             Add To Cart
                                         </button>
                                     </div>

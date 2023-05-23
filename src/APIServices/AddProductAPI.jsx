@@ -1,11 +1,11 @@
 import axios from 'axios'
 
-export default function AddProduct(Name, Price, Image){
-    let URL = 'http://localhost:5000/api/v1/AddProduct';
+export default function AddProduct(Name, Price){
+    let URL = 'https://aide-bussiness-solution-server.vercel.app/api/v1/AddProduct';
     let PostBody = {
         Name:Name,
         Price:Price,
-        Image:Image,
+        // Image:Image,
     }
     return axios.post(URL,PostBody)
     

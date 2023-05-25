@@ -1,71 +1,58 @@
+import { useEffect} from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "react-hot-toast";
-import AddUser from "../../../APIServices/AddUserAPI";
 
 
-function AddUserModel() {
+
+function EditUserModal(userById) {
+
     const {
         register,
         handleSubmit,
-        formState: { errors },
       } = useForm();
 
-    const handleAddUser=(data)=>{
+    // get user by id from database
+    
+
+    const handleUpdateUser=(event)=>{
+        event.preventDefault()
+        console.log(event.target,)
         
-        const name = data.name;
-        const email = data.email;
-        const role = data.role;
-        const plan = data.plan;
-        const status = data.status;
+        // const name = data.name;
+        // const email = data.email;
+        // const role = data.role;
+        // const plan = data.plan;
+        // const status = data.status;
 
-        // image save to imagebb
-        const image = data.image[0]
-        const formData = new FormData()
-        formData.append("image",image)
-        console.log(image)
-
-        const url = `https://api.imgbb.com/1/upload?expiration=600&key=3a18e766256285294071cef60adb0051`
-        fetch(url,{
-            method:"POST",
-            body:formData
-        })
-        .then(res=>res.json())
-        .then(imageData=>{
-            console.log(imageData.data.url)
-
-        AddUser(name, email, role,plan,status,imageData.data.url).then((result) => {
-            if (result === true) {
-                toast.success("Added User Succesfully")
-                history.replace('/adminDashboard/allUsers')
-            } else {
-                toast.error("User do not added")
-            }
-          });
-        })
+        
+        // UpdateUser(name, email, role,plan,status,id).then((result) => {
+        //     if (result === true) {
+        //         toast.success("Added User Succesfully")
+        //         history.replace('/adminDashboard/allUsers')
+        //     } else {
+        //         toast.error("User do not added")
+        //     }
+        //   });
     }
-
     return (
         <div>
-            <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+            <input type="checkbox" id="my-modal-4" className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box relative">
-                    <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <form onSubmit={handleSubmit(handleAddUser)}>
+                    <label htmlFor="my-modal-4" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <form onSubmit={handleSubmit(handleUpdateUser)}>
                         <div className="grid md:grid-cols-2 grid-cols-1 gap-3">
                             <div className="form-control w-full">
                                 <label className="label">
                                     <span className="label-text">Name</span>
                                 </label>
+                                
                                 <input
                                     type="text"
                                     {...register("name", { required: "Name is required" })}
                                     className="input input-bordered input-default w-full "
+                                    defaultValue={userById?.userById?.Name}
                                 />
-                                {errors.name && (
-                                    <p className="text-red-500" role="alert">
-                                    {errors.name?.message}
-                                    </p>
-                                )}
+                               
                             </div>
                             
                             <div className="form-control w-full">
@@ -76,15 +63,13 @@ function AddUserModel() {
                                     {...register("email", {
                                     required: "Email Address is required",
                                     })}
+                                
                                     type="email"
                                     className="input input-bordered input-default w-full "
+                                    defaultValue={userById?.userById?.Email}
                                     required
                                 />
-                                {errors.email && (
-                                    <p className="text-red-500" role="alert">
-                                    {errors.email?.message}
-                                    </p>
-                                )}
+                              
                             </div>
 
                             <div className="form-control w-full ">
@@ -93,11 +78,12 @@ function AddUserModel() {
                                 </label>
                                 <select
                                     type="text"
+                                  
                                     {...register("role")}
                                     className="select select-bordered w-full "
-                                    
+                                    defaultValue={userById?.userById?.Role}
                                 >
-                                    <option>Select</option>
+                                    
                                     <option>Admin</option>
                                     <option>Auditor</option>
                                     <option>Author</option>
@@ -112,12 +98,13 @@ function AddUserModel() {
                                 </label>
                                 <select
                                     type="text"
+                                   
                                     {...register("plan")}
                                     className="select select-bordered w-full "
-                                    
+                                    defaultValue={userById?.userById?.Plan}
                                 
                                 >
-                                    <option>Select</option>
+                                    
                                     <option>Enterprise</option>
                                     <option>Team</option>
                                     <option>Company</option>
@@ -131,11 +118,11 @@ function AddUserModel() {
                                 </label>
                                 <select
                                     type="text"
-                                    {...register("status")}
+                                    name="status"
                                     className="select select-bordered w-full "
-                                    
+                                    defaultValue={userById?.userById?.Status}
                                 >
-                                    <option>Select</option>
+                                    
                                     <option>Pending</option>
                                     <option>Active</option>
                                     <option>Inactive</option>
@@ -145,16 +132,15 @@ function AddUserModel() {
                                 <label className="label">
                                     <span className="label-text">Add User Image</span>
                                 </label>
-                                <input 
-                                type="file" 
-                                {...register("image")}
-                                className="file-input file-input-bordered file-input-md w-full" />
+                                <input type="file" className="file-input file-input-bordered file-input-md w-full" />
                             </div>    
                         </div>
                             <input
+                            // onClick={()=>(userById?.userById?._id)}
                             className="btn btn-success w-full mt-4"
                             type="submit"
-                            value="Add User"
+                            value="Update User"
+                            
                             />
                     </form>
                 </div>
@@ -163,4 +149,4 @@ function AddUserModel() {
     );
 }
 
-export default AddUserModel;
+export default EditUserModal;

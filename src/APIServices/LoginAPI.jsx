@@ -7,11 +7,7 @@ export default function Create(Email,Password){
         Password:Password
     }
     console.log(URL,PostBody)
-    return axios.post(URL,PostBody,{
-        headers:{
-            authorization:`bearer ${localStorage.getItem('my-token')}`,
-        }
-    })
+    return axios.post(URL,PostBody)
     
     .then((res)=>{
         console.log(res)

@@ -10,6 +10,7 @@ function UploadProduct() {
     useEffect(()=>{
         GetProduct().then((result) => {
             setProductData(result);
+            console.log(result)
           })
     },[])
 
@@ -23,11 +24,11 @@ function UploadProduct() {
         <div className='px-16 mx-auto mb-20'>
             <div className="grid md:grid-cols-3 grid-cols-1 gap-8">
                  { 
-                    productData?.map((data,_id)=>{
+                    productData?.map((data)=>{
                         return (
-                            <div key={_id} className="card card-compact p-5 w-96 bg-base-100 shadow-lg cursor-pointer">
+                            <div key={data._id} className="card card-compact p-5 w-96 bg-base-100 shadow-lg cursor-pointer">
                                 <figure>
-                                    {/* <img src={data?.img} className='w-64 h-64' alt="Shoes" /> */}
+                                    <img src={data?.Image} className='w-64 h-64' alt="Shoes" />
                                 </figure>
                                 <div className="card-body">
                                     <div className='flex justify-between mb-4'>

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export default function AddUser(name, email, role,plan,status){
+export default function AddUser(name, email, role,plan,status,imageLink ){
     let URL = 'https://aide-bussiness-solution-server.vercel.app/api/v1/AddUser';
     let PostBody = {
         Name:name,
@@ -8,6 +8,7 @@ export default function AddUser(name, email, role,plan,status){
         Role:role,
         Plan:plan,
         Status:status,
+        Image:imageLink
     }
     return axios.post(URL,PostBody)
     

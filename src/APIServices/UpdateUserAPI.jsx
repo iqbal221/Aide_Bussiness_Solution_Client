@@ -1,14 +1,15 @@
 import axios from 'axios'
 
-export default function AddProduct(Name, Price, ImageLInk){
-    let URL = 'https://aide-bussiness-solution-server.vercel.app/api/v1/UploadProduct';
+export default function UpdateUser(name, email, role,plan,status){
+    let URL = 'https://aide-bussiness-solution-server.vercel.app/api/v1/UpdateUser';
     let PostBody = {
-        Name:Name,
-        Price:Price,
-        Image:ImageLInk
+        Name:name,
+        Email:email,
+        Role:role,
+        Plan:plan,
+        Status:status,
     }
-    console.log(PostBody)
-    return axios.post(URL,PostBody)
+    return axios.update(URL,PostBody)
     
     .then((res)=>{
         console.log(res)

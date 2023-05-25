@@ -9,6 +9,7 @@ import AdminDashboard from "../layout/AdminDashboard";
 import AddProducts from "../components/Admin/AddProducts/AddProducts";
 import AddUser from "../components/Admin/AddUser/AddUser";
 import PrivateRoute from "./PrivateRoute";
+import EditUserModal from "../components/Admin/AllUsers/EditUserModal";
 
 
 export const routes = createBrowserRouter([
@@ -50,6 +51,14 @@ export const routes = createBrowserRouter([
             {
                 path:'/adminDashboard/addUser',
                 element:<AddUser></AddUser>
+            },
+            {
+                path:'/adminDashboard/editModal/:id',
+                element:<EditUserModal></EditUserModal>,
+                loader: ({ params }) =>
+                fetch(
+                    `https://aide-bussiness-solution-server.vercel.app/api/v1//${params.id}`
+                ),
             }
         ]
     }
